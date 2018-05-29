@@ -1,0 +1,17 @@
+<div class="form-container">
+  <div class="container">
+
+    <div class="row align-items-center justify-content-center">
+
+      <div class="col-sm-12 col-lg-6 form-box">
+        <h1>Mon profil</h1>
+        <p>Email: <%=current_user.email%></p>
+        <a class="dropdown-item" href="/showcart">Mon panier</a>
+        <a class="dropdown-item" href="/orders">Mes commandes</a>
+        <% if current_user.admin? %>
+          <a class="btn btn-success cart-button" href="/adminv">Admin</a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

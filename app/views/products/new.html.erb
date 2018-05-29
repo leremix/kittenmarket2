@@ -1,0 +1,23 @@
+<%= form_for @item, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+
+<p>Titre de l'item</br>
+  <%= f.text_field :title %>
+</p>
+
+<p>Description du Poster</br>
+  <%= f.text_area :description %>
+</p>
+
+
+<p>Prix du Poster</br>
+  <%= f.text_field :price %>
+</p>
+
+
+<p>Poster</br>
+  <%= f.text_field :image_url %>
+</p>
+
+
+  <%= f.submit "Créer l'Item" %>
+<% end %>

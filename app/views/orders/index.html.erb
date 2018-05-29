@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-8 cart">
+      <div>
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Commande</th>
+              <th scope="col">Montant total</th>
+              <th scope="col">Statut</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%@orders.each do |order|%>
+            <tr>
+              <td>
+                <p>
+                  <%order.items.each do |item|%>
+                  <%=item.title%> /
+                  <%end%>
+              </td>
+              <td><%=order.total_price.round(2)%></td>
+              <% if order.statut == false %>
+              <td>Unpayed</td>
+              <td></td>
+              <td><%= link_to "Payer", new_charge_path(order.id),  :class=>"btn btn-success cart-button" %>
+              <%= link_to "Annuler", orderdestroy_path(order.id),:class=>"btn btn-danger cart-button", :method => "delete" %>
+              </td>
+              <%else%>
+              <td>Complete</td>
+              <td></td>
+              <%end%>
+            </tr>
+            <%end%>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

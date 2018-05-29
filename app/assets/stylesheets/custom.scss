@@ -1,0 +1,58 @@
+/*!
+ * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template-overviews/shop-homepage)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
+ */
+
+body {
+  padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+
+img {
+   vertical-align: middle;
+   border-style: none;
+}
+
+
+// --------- form css --------- //
+
+.form-container{
+  margin: 0 !important;
+  width: 100%;
+  background-color: grey;
+  background-size: cover;
+}
+
+.form-box{
+margin-top: 10%;
+margin-left: 50%;
+margin-right: 10%;
+margin-bottom: 15%;
+padding-top: 5%;
+padding-bottom: 5%;
+height: 80%;
+width: 25%;
+text-align: center;
+background-color: white;
+border-color: grey;
+border-radius: 5px;
+}
+
+// --------- photo chat --------- //
+
+.cont-photo-chat{
+   height: 250px;
+   overflow: hidden;
+}
+
+.photo-chat{
+   height:100%;
+   width: 100%;
+}

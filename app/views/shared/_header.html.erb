@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="/">KITTEN</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <% if user_signed_in? %>
+
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">ACCUEIL</a>
+        </li>
+        <li class="nav-item">
+          <div class="dropdown show">
+              <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-user-circle"></i> PROFILE
+              </a>
+
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="/showcart">PANIER</a>
+                <a class="dropdown-item" href="/orders">COMMANDES</a>
+                <a class="dropdown-item" href="<%=show_user_path(current_user.id)%>">PROFILE</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" data-method="delete" href="/users/sign_out" rel="nofollow">DECONNEXION</a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/showcart">
+          <i class="fa fa-shopping-basket"></i>
+            <%if current_user.cart%>
+          <%=current_user.cart.items.count%>
+          <%end%>
+        </a>
+          </li>
+      </ul>
+
+      <% else %>
+
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">ACCUEIL</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/users/sign_in">SE CONNECTER</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/users/sign_up">S'INSCRIRE</a>
+        </li>
+      </ul>
+
+      <% end %>
+    </div>
+  </div>
+</nav>

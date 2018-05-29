@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-8 cart">
+      <h1>Mon panier</h1>
+      <%if current_user.cart.items.count>0%>
+      <div>
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Article</th>
+              <th scope="col">description</th>
+              <th scope="col">prix</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% $total = 0 %>
+            <%@cart.each do |value|%>
+            <tr>
+              <td><%=value.title%></td>
+              <td><%=value.description%></td>
+              <td><%=value.price%>€</td>
+              <td>
+                <%= link_to destroyitem_path(value.id),:class=>"btn btn-danger cart-button",:method => "delete" do %>
+                <i class="fa fa-trash"></i>
+                <% end %>
+              </td>
+              <% $total += value.price %>
+            </tr>
+            <%end%>
+            <tr>
+              <td></td>
+              <td class="text-right" >Total:</td>
+              <td><%=$total.round(2)%> €</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <%= link_to "Valider mon panier", createorder_path,:class=>"btn btn-success cart-button" %>
+        <%= link_to "Vider mon panier", cartdestroy_path,:class=>"btn btn-danger cart-button", :method => "delete" %>
+      </div>
+      <%else%>
+      <p> Votre panier est vide </p>
+      <%end%>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+<br>

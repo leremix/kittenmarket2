@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<div class="alert alert-primary" role="alert">
+  <center>
+<h1>List of items</h1>
+</center>
+</div>
+<%= link_to 'New item', newitem_path, :class=>"btn btn-outline-warning" %>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Titre</th>
+      <th>Description</th>
+      <th>Prix</th>
+      <th>Poster</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.title %></td>
+        <td><%= item.description %></td>
+        <td><%= item.price %> €</td>
+        <td><%= item.image_url %></td>
+        <td><%= link_to 'Show', product_path(:id => item.id) %></td>
+        <td><%= link_to 'Edit', edit_path(:id => item.id) %></td>
+        <td><%= link_to 'Destroy', destroyitem_path(item.id), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Prix</th>
+      <th>Email</th>
+      <th>Order ID</th>
+    </tr>
+  </thead>
+
+  <div class="alert alert-dark" role="alert">
+<center>
+<h1>List of orders</h1>
+</center>
+</div>
+<tbody>
+  <%@orders.each do |order|%>
+  <tr>
+    <td>
+      <p>
+        <%order.items.each do |item|%>
+        <%=item.title%> /
+        <%end%>
+    </td>
+    <td><%=order.total_price.round(2)%> €</td>
+    <td><%=order.user.email%></td>
+    <td><%=order.id%></td>
+  </tr>
+  <%end%>
+</tbody>
+</table>
+<br>
