@@ -5,6 +5,7 @@
   <div class="right menu">
     <% if user_signed_in? %>
 
+
             <%= link_to 'Mon compte', show_user_path(current_user.id), class: "item" %>
           <%= link_to 'Deconnexion', destroy_user_session_path, :method => :delete, class: "item" %>
 
@@ -22,3 +23,4 @@
 
   </div>
 </div>
+>>>>>>> 276aac5d55aa3f7527024a93d4a757de00a14951
