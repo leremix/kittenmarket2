@@ -7,9 +7,9 @@
         <div class="content">
           <div class="item">
             <i class="mail icon violet"></i>
-            
+
               <%= current_user.email %>
-            
+
           </div>
           <div class="item">
             <% if current_user.admin? %>
@@ -18,22 +18,24 @@
           </div>
           <div class="item">
             <i class="user icon violet"></i>
-            
+
               <span>Nom</span> <span>Prenom</span>
-            
+
           </div>
           <div class="item">
             <i class="marker icon violet"></i>
-            
+
               <span>Adresse</span>,<span> 13001 </span><span>Ville</span>
             </div>
           </div>
           <div class="ui two bottom attached buttons">
-            <button class="ui circular mini button basic green">
-             Modifier
-          </button>
-          <button class="ui mini button basic red">Supprimer</button>
-      </div>    
+            <%=link_to 'Modifier', edit_user_registration_path, class:"button ui circular mini button basic green" %>
+            <%=link_to 'Supprimer', edit_user_registration_path, class:"button ui mini button basic red" , data: { confirm: "Pour suppression votre compte veuillez-vous rendre en bas de la page d'édition de votre profil et confirmez" } %>
+
+
+
+
+      </div>
       </div>
         <img>
       </div>
@@ -56,6 +58,6 @@
       </tbody>
     </table>
       </div>
-    </div>  
+    </div>
   </div>
 </div>
