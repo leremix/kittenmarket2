@@ -7,7 +7,7 @@
        
             <%= link_to 'Mon compte', show_user_path(current_user.id), class: "item" %>
           <%= link_to 'Deconnexion', destroy_user_session_path, :method => :delete, class: "item" %>
-          
+          <a href="<% destroy_user_session_path %>" class="item"><i class="icon power off"></i></a>
         
  
      
