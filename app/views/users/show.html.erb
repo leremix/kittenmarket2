@@ -1,17 +1,61 @@
-<div class="form-container">
-  <div class="container">
-
-    <div class="row align-items-center justify-content-center">
-
-      <div class="col-sm-12 col-lg-6 form-box">
-        <h1>Mon profil</h1>
-        <p>Email: <%=current_user.email%></p>
-        <a class="dropdown-item" href="/showcart">Mon panier</a>
-        <a class="dropdown-item" href="/orders">Mes commandes</a>
-        <% if current_user.admin? %>
+<div class="Site-content">
+  <div class="ui grid" style= "padding: 10px;">
+    <div class="row">
+      <div class="four wide column">
+        <h1 class="text-center">Mes informations</h1>
+        <div class="ui card">
+        <div class="content">
+          <div class="item">
+            <i class="mail icon violet"></i>
+            
+              <%= current_user.email %>
+            
+          </div>
+          <div class="item">
+            <% if current_user.admin? %>
           <a class="btn btn-success cart-button" href="/adminv">Admin</a>
         <% end %>
+          </div>
+          <div class="item">
+            <i class="user icon violet"></i>
+            
+              <span>Nom</span> <span>Prenom</span>
+            
+          </div>
+          <div class="item">
+            <i class="marker icon violet"></i>
+            
+              <span>Adresse</span>,<span> 13001 </span><span>Ville</span>
+            </div>
+          </div>
+          <div class="ui two bottom attached buttons">
+            <button class="ui circular mini button basic green">
+             Modifier
+          </button>
+          <button class="ui mini button basic red">Supprimer</button>
+      </div>    
       </div>
-    </div>
+        <img>
+      </div>
+      <div class="twelve wide column">
+        <h1 class="text-center">Mes commandes</h1>
+         <table class="ui striped violet table">
+      <thead>
+        <tr>
+          <th>Date Commande</th>
+          <th>Produits</th>
+          <th>Montant</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John Lilki</td>
+          <td>September 14, 2013</td>
+          <td>jhlilk22@yahoo.com</td>
+        </tr>
+      </tbody>
+    </table>
+      </div>
+    </div>  
   </div>
 </div>

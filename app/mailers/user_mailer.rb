@@ -14,7 +14,7 @@ class UserMailer < ApplicationMailer
 
     mail(
         from: "agenceaixit@gmail.com",
-        to: "test@test.com",
+        to: "test@teste.com",
         subject: "Une commande a été passée"
     )
 

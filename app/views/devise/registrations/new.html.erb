@@ -1,11 +1,13 @@
-<div class="form-container">
-  <div class="container">
-
-    <div class="row align-items-center justify-content-center">
-
-      <div class="col-sm-12 col-lg-6 form-box">
-        
-        <h2>Créer mon compte</h2>
+<div class="ui grid centered">
+  <div class="four wide column center aligned">
+    <div class="ui row">
+      <div class="content">
+        <h2>Créer un compte</h2>
+        <div class="meta">
+          <span class="date">Renseignez tous les champs</span> </br>
+        </div>
+        <div class="description">
+          <div class="ui big form">
 
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
@@ -16,24 +18,28 @@
         </div>
 
         <div class="field">
-          <%= f.label :password %>
+          <%= f.label :mot_de_passe %>
           <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <em>(<%= @minimum_password_length %> caractères minimum)</em>
           <% end %><br />
           <%= f.password_field :password, autocomplete: "off" %>
         </div>
 
         <div class="field">
-          <%= f.label :password_confirmation %><br />
+          <%= f.label :confirmation_du_mot_de_passe %><br />
           <%= f.password_field :password_confirmation, autocomplete: "off" %>
         </div>
 
         <div class="actions">
-          <%= f.submit "Créer mon compte" %>
-        </div>
-        <% end %>
+                <%= f.submit "Créer un compte", class:  'ui button circular violet huge'%>
+              </div>
+            <% end %>
 
-        <%= render "devise/shared/links" %>
+            </div>
+          <div class="extra content">
+            <%= render "devise/shared/links" %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
