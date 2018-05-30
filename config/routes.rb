@@ -34,6 +34,8 @@ Rails.application.routes.draw do
 
   get '/newitem', to: 'products#new'
 
+  post '/createitem', to: 'products#create'
+
   get 'users/:id',to: 'users#show', as: 'show_user'
 
   get '/adminv/edit/:id', to: 'products#edit', as:'edit'
