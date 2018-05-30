@@ -4,19 +4,20 @@
   <%= link_to 'Photos', root_path, class: "item" %>
   <div class="right menu">
     <% if user_signed_in? %>
-       
+
             <%= link_to 'Mon compte', show_user_path(current_user.id), class: "item" %>
           <%= link_to 'Deconnexion', destroy_user_session_path, :method => :delete, class: "item" %>
-          
-        
- 
-     
+
+
+
+
         <%= link_to 'Panier', showcart_path, class: "item" %>
-   
+        <% if current_user.admin? %>
+          <%= link_to 'Dashboard', "/adminv", class: "item" %><%end%>
     <% else %>
       <%= link_to 'Se connecter', new_user_session_path, class: "item" %>
     <% end %>
+
+
   </div>
 </div>
-
-
