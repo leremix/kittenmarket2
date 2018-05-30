@@ -1,3 +1,52 @@
+<div class="ui centered grid">
+      <h1 class="text-center">Liste des produits</h1>
+  <div class="row">
+
+
+      <table class="ui very basic collapsing table striped celled">
+        <thead>
+          <tr><th>Produits</th>
+          <th>Description</th>
+          <th>Prix</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr></thead>
+        <tbody>
+          <% @items.each do |item| %>
+            <tr>
+              <td>
+                <h4 class="ui image header">
+                  <img src="<%= image_url "#{rand(10)}.jpg" %>" class="ui small rounded image">
+                  <div class="content">
+                  <%= item.title %>
+                  <div class="sub header">
+                  </div>
+                  </div>
+                </h4>
+              </td>
+              <td><%= item.description %></td>
+              <td><%= item.price %> €</td>
+             
+              <td><%= link_to 'Show', product_path(:id => item.id), class: 'ui button basic mini circular violet' %></td>
+              <td><%= link_to 'Edit', edit_path(:id => item.id), class: 'ui button basic green mini circular' %></td>
+              <td><%= link_to 'Destroy', destroyitem_path(item.id), method: :delete, class: 'ui button basic red mini circular' %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>    
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
 <p id="notice"><%= notice %></p>
 
 <div class="alert alert-primary" role="alert">
