@@ -17,6 +17,7 @@ gem 'dotenv-rails', :groups => [:development, :test]
 gem "font-awesome-rails"
 
 gem 'devise-i18n'
+gem 'toastr-rails'
 
 
 group :development, :test do
