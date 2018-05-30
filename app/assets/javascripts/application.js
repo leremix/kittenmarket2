@@ -14,5 +14,9 @@
 //= require turbolinks
 //= require jquery3
 //= require popper
-//= require bootstrap
+//=require toastr
 //= require_tree .
+
+toastr.options = {
+  "positionClass": "toast-bottom-right"
+}
