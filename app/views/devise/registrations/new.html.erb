@@ -21,6 +21,7 @@
         </div>
 
         <div class="field">
+
           <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> caractères minimum)</em>
           <% end %><br />
@@ -28,6 +29,7 @@
         </div>
 
         <div class="field">
+
           <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirmer mot de passe"  %>
         </div>
 
