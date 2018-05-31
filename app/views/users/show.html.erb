@@ -37,39 +37,8 @@
       <div class="twelve wide column">
         <h1 class="text-center">Mes commandes</h1>
 
-        <thead>
-          <tr>
-            <th>Commande</th>
-            <th>Montant total</th>
-            <th>Statut</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <%@orders.each do |order|%>
-          <tr>
-            <td>
-              <p>
-                <%order.items.each do |item|%>
-                <%=item.title%> /
-                <%end%>
-            </td>
-            <td><%=order.total_price.round(2)%></td>
-            <% if order.statut == false %>
-              <td>En attente de paiement</td>
-              <td></td>
-              <td><%= link_to "Payer", new_charge_path(order.id),  :class=>"ui button basic green circular tiny" %>
-              <%= link_to "Annuler", orderdestroy_path(order.id),:class=>"ui button basic red circular tiny", :method => "delete" %>
-              </td>
-            <%else%>
-              <td>Complete</td>
-              <td></td>
-            <%end%>
-          </tr>
-          <%end%>
-        </tbody>
-        </table>
+    
+            <%= render "orders" %>
 
 
 
