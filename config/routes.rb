@@ -5,21 +5,23 @@ Rails.application.routes.draw do
      resources :photos
 
 
+  get '/adminv' , to: 'products#admin_view'
 
-  root 'products#index'
+  get 'users/admin'
 
-       resources :photos
+  get 'users/show', as: 'users_show'
 
+  get 'orderpayement/:id' , to: 'charges#new', as: 'new_charge'
 
-    get '/adminv' , to: 'products#admin_view'
+  post 'payementconfirmation/:id' , to: 'charges#create', as: 'charges'
 
-    get 'users/admin'
+  get 'carts/show'
 
-    get 'users/show', as: 'users_show'
+  devise_for :users
 
   get 'products/index'
 
-    put '/products/update', to: 'products#update', as: 'put_product'
+  get '/products/:id', to: 'products#show', as: 'product'
 
   post '/products/create', to: 'products#create', as: 'create_product'
 
@@ -29,21 +31,25 @@ Rails.application.routes.draw do
 
   get '/products/addtocart/:id', to: 'carts#addtocart', as: 'addtocart'
 
-    get '/showcart', to: 'carts#show', as: 'showcart'
+  get '/showcart', to: 'carts#show', as: 'showcart'
 
-    get '/createorder', to: 'orders#createorder', as: 'createorder'
+  get '/createorder', to: 'orders#createorder', as: 'createorder'
 
-    get '/orders', to: 'orders#index', as: 'orders'
+  get '/orders', to: 'orders#index', as: 'orders'
 
-    delete '/cart/destroy', to: 'carts#destroy', as: 'cartdestroy'
+  delete '/cart/destroy', to: 'carts#destroy', as: 'cartdestroy'
 
-    delete '/cart/destroyitem/:id', to: 'carts#deleteitem', as: 'destroyitem'
+  delete '/cart/destroyitem/:id', to: 'carts#deleteitem', as: 'destroyitem'
 
-    delete '/orderdestroy/:id', to: 'orders#destroy', as: 'orderdestroy'
+  delete '/orderdestroy/:id', to: 'orders#destroy', as: 'orderdestroy'
 
-    get '/newitem', to: 'products#new'
+  get '/newitem', to: 'products#new'
 
-    get 'users/:id',to: 'users#show', as: 'show_user'
+  get 'users/:id',to: 'users#show', as: 'show_user'
 
-    get '/adminv/edit/:id', to: 'products#edit', as:'edit'
-  end
+  get '/adminv/edit/:id', to: 'products#edit', as:'edit'
+
+  get 'products/index'
+
+
+end
