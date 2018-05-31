@@ -3,7 +3,7 @@
   <%= link_to 'Photos', root_path, class: "item" %>
   <div class="right menu">
     <% if user_signed_in? %>
-
+            
             <%= link_to show_user_path(current_user.id), class: "item" do %>
               <i class="icon user"></i> Mon compte
             <% end %>

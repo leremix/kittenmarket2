@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+     resources :photos
+     
+
   get '/adminv' , to: 'products#admin_view'
 
   get 'users/admin'
@@ -33,8 +36,6 @@ Rails.application.routes.draw do
   delete '/orderdestroy/:id', to: 'orders#destroy', as: 'orderdestroy'
 
   get '/newitem', to: 'products#new'
-
-  post '/createitem', to: 'products#create'
 
   get 'users/:id',to: 'users#show', as: 'show_user'
 
