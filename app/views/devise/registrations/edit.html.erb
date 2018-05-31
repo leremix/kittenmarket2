@@ -1,50 +1,64 @@
-<<<<<<< HEAD
-<div class="ui grid centered">
-  <div class="four wide column center aligned">
-    <div class="ui row">
-      <div class="content">
+<div class="Site-content">
+  <div class="ui grid centered">
+    <div class="four wide column center aligned">
+      <div class="ui row">
+        <div class="content">
 
-      <h2>Modifier <%= resource_name.to_s.humanize %></h2>
-=======
+          <h2>Modifier <%= resource_name.to_s.humanize %></h2>
 
->>>>>>> master
+          <div class="meta">
+              <span class="date">Renseignez tous les champs</span> </br>
+          </div>
+          <div class="description">
+            <div class="ui big form">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-<%= render 'shared/devise_errors' %>
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              <%= render 'shared/devise_errors' %>
 
-  <div class="field">
-    <%= f.text_field :fullname, autofocus: true, class: "form-control", placeholder: "Nom complet ( Prénom + Nom)" %>
+                <div class="field">
+                  <%= f.text_field :fullname, autofocus: true, class: "form-control", placeholder: "Nom complet ( Prénom + Nom)" %>
+                </div>
+
+
+                <div class="field">
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Adresse e-mail" %>
+                </div>
+
+                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                  <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                <% end %>
+
+                <div class="field">
+                  <%= f.password_field :password, autocomplete: "off", placeholder: "Nouveau mot de passe (si vous souhaitez changer de mot de passe)"  %>
+                  <% if @minimum_password_length %>
+                    <br />
+                    <em><%= @minimum_password_length %> caractères minimum</em>
+                  <% end %>
+                </div>
+
+                <div class="field">
+                  <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirmation du mot de passe" %>
+                </div>
+
+
+                <div class="actions">
+                  <%= f.submit "Enregistrer", class: 'ui button basic violet circular huge '%>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <div class="row" style="padding-top: 20px;">
+        <div class="content">
+          <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Cette action est définitive, vous confirmer la suppression du compte?" }, method: :delete, class: 'ui button circular red basic tiny' %>
+
+          <%= link_to "Retour au profil", :back  %>
+          
+        </div>
+        
+        
+      </div>
+    </div>
   </div>
-
-
-  <div class="field">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Adresse e-mail" %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.password_field :password, autocomplete: "off", placeholder: "Nouveau mot de passe (si vous souhaitez changer de mot de passe)"  %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirmation du mot de passe" %>
-  </div>
-
-
-  <div class="actions">
-    <%= f.submit "Enregistrer" %>
-  </div>
-<% end %>
-
-<h3>Supprimer Mon Compte</h3>
-
-<p>Déjà? Vous allez nous manquer... <%= button_to "SUPPRIMER", registration_path(resource_name), data: { confirm: "Cette action est définitive, vous confirmer la suppression du compte?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>

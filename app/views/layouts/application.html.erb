@@ -20,10 +20,19 @@
 </head>
 
   <body class="Site">
-    <%= render "shared/header" %>
+    
+    <% if controller_name == "products" && action_name == "admin_view" %>
+      <%= render "shared/header_dark" %>
+      <% else %>
+      <%= render "shared/header" %>
+  <%end %>
     <%= render 'shared/message' %>
     <%= yield %>
-    <%= render "shared/footer" %>
+    <% if controller_name == "products" && action_name == "admin_view" %>
+      <%= render "shared/footer_dark" %>
+      <% else %>
+      <%= render "shared/footer" %>
+  <%end %>
   </body>
 
 </html>

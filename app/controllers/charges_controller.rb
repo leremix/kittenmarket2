@@ -21,7 +21,7 @@ class ChargesController < ApplicationController
     
     @order.statut = true
     @order.save!
-    UserMailer.order_email.deliver_now!
+    # UserMailer.order_email.deliver_now!
     rescue Stripe::CardError => e
     flash[:error] = e.message
 

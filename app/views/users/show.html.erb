@@ -1,39 +1,37 @@
 <div class="Site-content">
   <div class="ui grid" style= "padding: 10px;">
     <div class="row">
+
+      
+
       <div class="four wide column">
         <h1 class="text-center">Mes informations</h1>
-        <div class="ui card">
-        <div class="content">
-          <div class="item">
-            <i class="mail icon violet"></i>
-
-
-              <%= current_user.email %>
-          </div>
-
-          <div class="item">
-            <i class="user icon violet"></i>
-
-              <%= current_user.fullname %>
-
-          </div>
-          <div class="item">
-            <i class="marker icon violet"></i>
-              <span>Adresse</span>,<span> 13001 </span><span>Ville</span>
+        <div class="ui centered card">
+          <div class="content">
+            <div class="item">
+              <i class="mail icon violet"></i>
+                <%= current_user.email %>
             </div>
+
+            <div class="item">
+              <i class="user icon violet"></i>
+                <%= current_user.fullname %>
+            </div>
+
+            <div class="item">
+              <i class="marker icon violet"></i>
+                <span>Adresse</span>,<span> 13001 </span><span>Ville</span>
+            </div>
+
           </div>
-<<<<<<< HEAD
           <div>
             <%= link_to "Modifier", edit_user_registration_path(current_user.id),  :class=>"ui bottom attached button basic green" %>
 
           </div>    
-=======
-         
-
->>>>>>> master
-     
+        </div>
       </div>
+
+
       <div class="twelve wide column">
         <h1 class="text-center">Mes commandes</h1>
          <table class="ui table violet striped ">
