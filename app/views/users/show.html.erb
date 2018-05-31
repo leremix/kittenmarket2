@@ -24,12 +24,10 @@
               <span>Adresse</span>,<span> 13001 </span><span>Ville</span>
             </div>
           </div>
-          <div class="ui two bottom attached buttons">
-            <button class="ui circular mini button basic green">
-             Modifier
-          </button>
-          <button class="ui mini button basic red">Supprimer</button>
-      </div>    
+          <div>
+            <%= link_to "Modifier", edit_user_registration_path(current_user.id),  :class=>"ui bottom attached button basic green" %>
+
+          </div>    
       </div>
         <img>
       </div>
@@ -38,7 +36,7 @@
          <table class="ui table violet striped ">
       <thead>
         <tr>
-          <th>Commande</th>
+          <th>Articles</th>
           <th>Montant total</th>
           <th>Statut</th>
           <th></th>
@@ -51,18 +49,18 @@
           <td>
             <p>
               <%order.items.each do |item|%>
-              <%=item.title%> /
+              <%=item.title%> - 
               <%end%>
           </td>
           <td><%=order.total_price.round(2)%></td>
           <% if order.statut == false %>
             <td>En attente de paiement</td>
-            <td></td>
-            <td><%= link_to "Payer", new_charge_path(order.id),  :class=>"ui button basic green circular tiny" %>
-            <%= link_to "Annuler", orderdestroy_path(order.id),:class=>"ui button basic red circular tiny", :method => "delete" %>
-            </td>
+            <td><%= link_to "Payer", new_charge_path(order.id),  :class=>"ui button basic green circular tiny" %></td>
+            <td><%= link_to "Annuler", orderdestroy_path(order.id),:class=>"ui button basic red circular tiny", :method => "delete" %></td>
+            
           <%else%>
-            <td>Complete</td>
+            <td>Payée</td>
+            <td></td>
             <td></td>
           <%end%>
         </tr>

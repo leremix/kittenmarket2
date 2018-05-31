@@ -1,6 +1,6 @@
 <section class="Site-content">
   <div class="ui grid centered container">
-    <h1>Mon panier</h1>
+    <h1 class="row">Mon panier</h1>
       <%if current_user.cart.items.count>0%>
           <table class="ui very basic table">
             <thead>
@@ -38,7 +38,9 @@
         <%= link_to "Annuler mon panier", cartdestroy_path,:class=>"ui button basic red circular huge", :method => "delete" %>
 
       <% else %>
-        <p> Votre panier est vide </p>
+      <div>
+       <h4> Votre panier est vide </h4>
+     </div>
       <% end %>
   </div>
 </section>
