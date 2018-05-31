@@ -8,17 +8,14 @@
           <div class="item">
             <i class="mail icon violet"></i>
 
-            
+
               <%= current_user.email %>
           </div>
-          <div class="item">
-            <% if current_user.admin? %>
-          <a class="btn btn-success cart-button" href="/adminv">Admin</a>
-        <% end %>
-          </div>
+
           <div class="item">
             <i class="user icon violet"></i>
-              <span>Nom</span> <span>Prenom</span>
+
+              <%= current_user.fullname %>
 
           </div>
           <div class="item">
@@ -53,29 +50,47 @@
         </tr>
       </tbody>
     </table>
->>>>>>> 276aac5d55aa3f7527024a93d4a757de00a14951
+
       </div>
         <img>
       </div>
       <div class="twelve wide column">
         <h1 class="text-center">Mes commandes</h1>
-         <table class="ui striped violet table">
+         <table class="ui table violet striped ">
       <thead>
         <tr>
-          <th>Date Commande</th>
-          <th>Produits</th>
-          <th>Montant</th>
+          <th>Commande</th>
+          <th>Montant total</th>
+          <th>Statut</th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
+        <%@orders.each do |order|%>
         <tr>
-          <td>John Lilki</td>
-          <td>September 14, 2013</td>
-          <td>jhlilk22@yahoo.com</td>
+          <td>
+            <p>
+              <%order.items.each do |item|%>
+              <%=item.title%> /
+              <%end%>
+          </td>
+          <td><%=order.total_price.round(2)%></td>
+          <% if order.statut == false %>
+            <td>En attente de paiement</td>
+            <td></td>
+            <td><%= link_to "Payer", new_charge_path(order.id),  :class=>"ui button basic green circular tiny" %>
+            <%= link_to "Annuler", orderdestroy_path(order.id),:class=>"ui button basic red circular tiny", :method => "delete" %>
+            </td>
+          <%else%>
+            <td>Complete</td>
+            <td></td>
+          <%end%>
         </tr>
+        <%end%>
       </tbody>
     </table>
       </div>
-    </div>  
+    </div>
   </div>
 </div>

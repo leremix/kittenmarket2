@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
   def admin_view
     if current_user.admin?
     @items = Item.all
+    @item = Item.new
     @orders = Order.all
     else
     redirect_to root_path
@@ -19,7 +20,7 @@ class ProductsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to @item
+      redirect_to adminv_path
     else
       render 'new'
     end

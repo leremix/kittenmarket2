@@ -1,8 +1,8 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-12 col-md-8 col-lg-8 cart">
-      <h1>Ma Commande</h1>
-      <%if current_user.cart.items.count>0%>
+<section class="Site-content">
+  <div class="ui centered grid">
+    <h1 class="row">Recapitulatif de votre commande</h1>
+
+   <%if current_user.cart.items.count>0%>
       <div>
         <table class="table">
           <thead class="thead-light">
@@ -37,5 +37,10 @@
                     data-locale="auto"></script>
           <% end %>
           </tbody>
-        </table>
-      </div>
+</table>
+  </div>
+  
+</section>
+
+
+
