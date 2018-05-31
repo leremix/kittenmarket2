@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   get '/products/:id', to: 'products#show', as: 'product'
 
+  post '/products/create', to: 'products#create', as: 'create_product'
+
   get '/products/addtocart/:id', to: 'carts#addtocart', as: 'addtocart'
 
   get '/showcart', to: 'carts#show', as: 'showcart'

@@ -20,3 +20,16 @@
 toastr.options = {
   "positionClass": "toast-bottom-right"
 }
+
+
+function quantity() {
+	var quantity = document.getElementById('quantity').value;
+
+	console.log('BOB');
+
+    console.log(quantity);
+
+
+    });
+	
+}

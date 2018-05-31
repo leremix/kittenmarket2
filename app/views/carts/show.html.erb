@@ -1,45 +1,70 @@
 <section class="Site-content">
-  <div class="ui grid centered container">
-    <h1 class="row">Mon panier</h1>
-      <%if current_user.cart.items.count>0%>
-          <table class="ui very basic table">
-            <thead>
-              <tr>
-                <th>Article</th>
-                <th>Description</th>
-                <th>prix</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <% $total = 0 %>
-              <%@cart.each do |value|%>
-              <tr>
-                <td><%=value.title%></td>
-                <td><%=value.description%></td>
-                <td><%=value.price%>€</td>
-                <td>
-                  <%= link_to destroyitem_path(value.id) ,:method => "delete" do %>
-                  <i class="icon trash pink"></i>
-                  <% end %>
-                </td>
-                <% $total += value.price %>
-              </tr>
-              <%end%>
-              <tr>
-                <td></td>
-                <td>Total:</td>
-                <td><%=$total.round(2)%> €</td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
-        <%= link_to "Valider mon panier", createorder_path,:class=>"ui button basic pink circular huge" %>
-        <%= link_to "Annuler mon panier", cartdestroy_path,:class=>"ui button basic red circular huge", :method => "delete" %>
+  <div class="ui grid container">
+    <div class="row centered">
+      <h1 class="title text-center">Mon panier</h1>
+        <%if current_user.cart.items.count>0%>
+            <table class="ui very basic table">
+              <thead>
+                <tr>
+                  <th>Article</th>
+                  <th>Description</th>
+                  <th>Prix</th>
+                  <th>Quantité</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% $total = 0 %>
+                <%@cart.each do |value|%>
+                <tr>
+                  <td><%=value.title%></td>
+                  <td><%=value.description%></td>
+                  <td><%=value.price%>€</td>
+                  <td>
+      
+                    <div class="ui form" id="formu">
+                      <div class="inline fields">
+                        <div class="field">
+                          <input placeholder="1" type="number" id="quantity" value ="">
+                          <button class="ui button submit basic violet tiny" onclick="quantity();"><i class="icon check"></i></button>
+                        </div>
+                      </div>
+                    </div>
 
-      <% else %>
-      <div>
-       <h4> Votre panier est vide </h4>
+                  </td>
+                  <td>
+                    <%= link_to destroyitem_path(value.id) ,:method => "delete" do %>
+                    <i class="icon trash pink"></i>
+                    <% end %>
+                  </td>
+                  <% $total += value.price %>
+                </tr>
+                <%end%>
+                <tr>
+                  <td></td>
+                  <td>Total:</td>
+                  <td><%=$total.round(2)%> €</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          <%= link_to "Valider mon panier", createorder_path,:class=>"ui button basic pink circular huge" %>
+          <%= link_to "Annuler mon panier", cartdestroy_path,:class=>"ui button basic red circular huge", :method => "delete" %>
+
+        <% else %>
+
+      </div>
+      <div class="row centered">
+        <h4> Votre panier est vide </h4>
+      </div>
+      <div class="row centered">
+        <i class="icon shopping cart massive"></i>
+      </div>
+        <%= render 'products/top_vente' %>
+       
+
+       
      </div>
       <% end %>
   </div>

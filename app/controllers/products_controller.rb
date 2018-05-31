@@ -1,6 +1,9 @@
 class ProductsController < ApplicationController
   def index
     @items = Item.all
+    @item1 = Item.find(1)
+    @item2 = Item.find(2)
+    @item3 = Item.find(3)
   end
 
   def admin_view
@@ -12,6 +15,8 @@ class ProductsController < ApplicationController
     redirect_to root_path
     end
   end
+
+  
 
   def new
     @item = Item.new

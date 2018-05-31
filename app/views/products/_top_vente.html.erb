@@ -1,41 +1,36 @@
-<div class="Site-content  ui container">
+<div class="ui container">
 
-	<h2 class="text-center title">Top vente</h2>
+	<h2 class="text-center title">Decouvrez nos meilleurs ventes</h2>
 		<div class="ui three column grid">
 
 			
-			    <div class= "column">
-			       <%= image_tag "#{rand(10)}.jpg" , class: 'ui circular image' %>
-			       <div class="ui raised segment">
-				      <a class="ui pink right ribbon label">Ajouter   <i class="shopping basket icon"></i></a>
-				      <h2 class="text-center">Bob</h2>
-				      <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-				      </p>
-				    </div>
+		    <div class= "column">
+		       <%= image_tag "#{rand(10)}.jpg" , class: 'ui circular image' %>
+		       <div class="ui raised segment">
+			      <a  href="<%= addtocart_path(@item1.id) %>" class="ui pink right ribbon label">Ajouter   <i class="shopping basket icon"></i></a>
+			      <h2 class="text-center"><%= @item1.title %></h2>
+			      <p><%= @item1.description %></p>
 			    </div>
-			    <div class="column">
-			      <%= image_tag "#{rand(10)}.jpg" , class: 'ui circular image' %>
-			       <div class="ui raised segment">
-				      <a class="ui pink right ribbon label">Ajouter   <i class="shopping basket icon"></i></a>
-				      <h2 class="text-center">Miaou</h2>
-				      <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-				      </p>
-				    </div>
+		    </div>
+		    <div class="column">
+		      <%= image_tag "#{rand(10)}.jpg" , class: 'ui circular image' %>
+		       <div class="ui raised segment">
+			      <a href="<%= addtocart_path(@item2.id) %>" class="ui pink right ribbon label">Ajouter   <i class="shopping basket icon"></i></a>
+			      <h2 class="text-center"><%= @item2.title %></h2>
+			      <p><%= @item2.description %></p>
 			    </div>
-			    <div class="column">
-			      <%= image_tag "#{rand(10)}.jpg" , class: 'ui circular image' %>
-			       <div class="ui raised segment">
-				      <a class="ui pink right ribbon label">Ajouter   <i class="shopping basket icon"></i></a>
-				      <h2 class="text-center">Felix</h2>
-				      <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-				      </p>
-				    </div>
+		    </div>
+		    <div class="column">
+		      <%= image_tag "#{rand(10)}.jpg" , class: 'ui circular image' %>
+		       <div class="ui raised segment">
+			      <a href="<%= addtocart_path(@item3.id) %>" class="ui pink right ribbon label">Ajouter   <i class="shopping basket icon"></i></a>
+			      <h2 class="text-center"><%= @item3.title %></h2>
+			      <p><%= @item3.description %></p>
 			    </div>
+		    </div>
 			    
-			 
+		</div>
+		 
 			
 	
 </div>
