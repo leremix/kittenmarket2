@@ -11,7 +11,7 @@
     <div class="row">
       <div class="ui buttons">
       
-        <%= link_to orders_path, :class=>"ui labeled icon button violet basic" do %>
+        <%= link_to show_user_path(current_user.id), :class=>"ui labeled icon button violet basic" do %>
           <i class="user outline icon"></i>
           Retour au profil
         <% end %>

@@ -25,6 +25,10 @@ Rails.application.routes.draw do
 
   post '/products/create', to: 'products#create', as: 'create_product'
 
+  patch '/products/update', to: 'products#update', as: 'update_product'
+
+  put '/products/update', to: 'products#update', as: 'put_product'
+
   get '/products/addtocart/:id', to: 'carts#addtocart', as: 'addtocart'
 
   get '/showcart', to: 'carts#show', as: 'showcart'
