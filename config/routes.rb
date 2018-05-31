@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'home#index'
+
      resources :photos
      
 
@@ -17,7 +19,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  root 'products#index'
+  get 'products/index'
 
   get '/products/:id', to: 'products#show', as: 'product'
 

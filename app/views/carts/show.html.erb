@@ -1,7 +1,7 @@
 <section class="Site-content">
   <div class="ui grid container">
     <div class="row centered">
-      <h1 class="title text-center">Mon panier</h1>
+      <h1 class="title text-center" onclick="tamere();">Mon panier</h1>
         <%if current_user.cart.items.count>0%>
             <table class="ui very basic table">
               <thead>
@@ -22,13 +22,13 @@
                   <td><%=value.price%>€</td>
                   <td>
       
-                    <div class="ui form" id="formu">
-                      <div class="inline fields">
-                        <div class="field">
+                    <div class="ui form">
+                     
+                        <div class="inline field">
                           <input placeholder="1" type="number" id="quantity" value ="">
-                          <button class="ui button submit basic violet tiny" onclick="quantity();"><i class="icon check"></i></button>
+                          <button class="ui button submit basic violet tiny"  id="modif_quantity" ><i class="icon check"></i></button>
                         </div>
-                      </div>
+                    
                     </div>
 
                   </td>

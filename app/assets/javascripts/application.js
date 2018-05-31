@@ -22,14 +22,27 @@ toastr.options = {
 }
 
 
-function quantity() {
-	var quantity = document.getElementById('quantity').value;
-
-	console.log('BOB');
-
-    console.log(quantity);
+function initElement(){
 
 
-    });
-	
+	var quantity = parseInt(document.getElementById('quantity').innerHTML);
+
+	var modif_quantity = document.getElementById('modif_quantity');
+
+	modif_quantity.onclick = showAlert();
+
+	var tamere = document.getElementById('tamere');
+
+	tamere.style.backgroundColor = '#545454 ' ;
+
 }
+
+function tamere() {
+	var tamere = document.getElementById('tamere');
+
+	tamere.style.backgroundColor = '#545454 ' ;
+}
+
+
+
+	
