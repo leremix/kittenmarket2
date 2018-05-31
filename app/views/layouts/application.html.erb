@@ -5,6 +5,7 @@
 <head>
   <title>Kitten </title>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -14,11 +15,13 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js">
 
     <!-- FONTS -->
-    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+
 </head>
 
   <body class="Site">
     <%= render "shared/header" %>
+    <%= render 'shared/message' %>
     <%= yield %>
     <%= render "shared/footer" %>
   </body>
