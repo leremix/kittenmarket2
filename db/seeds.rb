@@ -47,7 +47,6 @@ description: "Un chat trop mignon",
 price: 4.50,
 image_url: "https://petcube.com/blog/content/images/2017/08/kitten-supplies-cover.jpg" )
 
-User.create(fullname: "admin test",
-            email: "test@gmail.com",
+User.create( email: "test@gmail.com",
             password: "test@gmail.com",
             admin: true )
