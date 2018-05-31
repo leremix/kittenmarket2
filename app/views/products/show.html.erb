@@ -1,44 +1,37 @@
 <div class="Site-content">
 
-<div class="ui centered grid container">
+  <div class="ui centered grid container">
 
-  <h1>Article : <%=@item.title%></h1>
-  <div class="row">
-    <div class="eight wide column">
+    <h1 class="title">Article : <%=@item.title%></h1>
+    <div class="row">
+      <div class="eight wide column">
 
-      <img class="ui fluid image rounded" src="<%=@item.image_url%>" alt="">
-      
-    </div>
-
-    <div class="eight wide column">
-
-    
-       <div class="ui raised card centered">
-        <div class="content">
-         
-          <div class="header">
-            <%=@item.description%>
-          </div>
-          <div class="description right floated">
-            <%=@item.price%> <i class="icon euro"></i>
-          </div>
-        </div>
-
-        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-          
-        
-        
-        <div class="ui button bottom attached violet ">
-          <a href="<%= addtocart_path(:id => @item.id) %>" style="color: white;">
-            <i class="icon shopping basket"></i>
-              Ajouter
-          </a>
-        </div>
+        <img class="ui fluid image rounded" src="<%=@item.image_url%>" alt="">
         
       </div>
+
+      <div class="eight wide column product_card">
+        <div class="ui raised card centered ">
+          <div class="content">
+           
+            <div class="header">
+              <%=@item.description%>
+            </div>
+            <div class="description right floated">
+              <%=@item.price%> <i class="icon euro"></i>
+            </div>
+          </div>
+          
+          <div class="ui button bottom attached violet ">
+            <a href="<%= addtocart_path(:id => @item.id) %>" style="color: white;">
+              <i class="icon shopping basket"></i>
+                Ajouter
+            </a>
+          </div> 
+        </div>
+      </div>
     </div>
+    
   </div>
-  
-</div>
 
 </div>

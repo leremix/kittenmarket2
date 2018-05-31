@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  root 'home#index'
+
+     resources :photos
+
 
 
   root 'products#index'
@@ -13,25 +17,17 @@ Rails.application.routes.draw do
 
     get 'users/show', as: 'users_show'
 
-    get 'orderpayement/:id' , to: 'charges#new', as: 'new_charge'
-
-    post 'payementconfirmation/:id' , to: 'charges#create', as: 'charges'
-
-    get 'carts/show'
-
-    devise_for :users
-
-    get 'products/index'
-
-    get '/products/:id', to: 'products#show', as: 'product'
-
-    post '/products/create', to: 'products#create', as: 'create_product'
-
-    patch '/products/update', to: 'products#update', as: 'update_product'
+  get 'products/index'
 
     put '/products/update', to: 'products#update', as: 'put_product'
 
-    get '/products/addtocart/:id', to: 'carts#addtocart', as: 'addtocart'
+  post '/products/create', to: 'products#create', as: 'create_product'
+
+  patch '/products/update', to: 'products#update', as: 'update_product'
+
+  put '/products/update', to: 'products#update', as: 'put_product'
+
+  get '/products/addtocart/:id', to: 'carts#addtocart', as: 'addtocart'
 
     get '/showcart', to: 'carts#show', as: 'showcart'
 

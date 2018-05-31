@@ -1,6 +1,9 @@
 class ProductsController < ApplicationController
   def index
     @items = Item.all
+    @item1 = Item.find(1)
+    @item2 = Item.find(2)
+    @item3 = Item.find(3)
   end
 
   def admin_view
@@ -12,6 +15,8 @@ class ProductsController < ApplicationController
     redirect_to root_path
     end
   end
+
+  
 
   def new
     @item = Item.new
@@ -31,8 +36,9 @@ class ProductsController < ApplicationController
   end
 
   def update
+    
     @item = Item.find(params[:id])
-    if @item.update(item_params)
+    if @item.update
       redirect_to @item
     else
       render 'edit'
@@ -51,6 +57,6 @@ class ProductsController < ApplicationController
 
   private
     def item_params
-      params.require(:item).permit(:title, :description, :price, :image_url)
+      params.require(:item).permit(:title, :description, :price, :image_url, :id )
     end
 end
