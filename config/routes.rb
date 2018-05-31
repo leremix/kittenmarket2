@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
 
+  devise_for :users,
+              :path => '',
+              :path_names => {:sign_in => 'login', :sign_out => 'logout', :edit => 'profile'},
+              :controllers => {:registrations => 'registrations',
+                               :confirmations => 'confirmations',
+      
+                               }
 
 
   root 'products#index'
 
        resources :photos
-
+       resources :charges, only:[:new, :create]
+       resources :users, only: [:show]
 
     get '/adminv' , to: 'products#admin_view'
 
@@ -38,6 +46,7 @@ Rails.application.routes.draw do
     get '/createorder', to: 'orders#createorder', as: 'createorder'
 
     get '/orders', to: 'orders#index', as: 'orders'
+
 
     delete '/cart/destroy', to: 'carts#destroy', as: 'cartdestroy'
 
