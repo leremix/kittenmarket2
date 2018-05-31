@@ -1,40 +1,53 @@
 Rails.application.routes.draw do
 
-  get '/adminv' , to: 'products#admin_view'
 
-  get 'users/admin'
-
-  get 'users/show'
-
-  get 'orderpayement/:id' , to: 'charges#new', as: 'new_charge'
-
-  post 'payementconfirmation/:id' , to: 'charges#create', as: 'charges'
-
-  get 'carts/show'
-
-  devise_for :users
 
   root 'products#index'
 
-  get '/products/:id', to: 'products#show', as: 'product'
+       resources :photos
 
-  get '/products/addtocart/:id', to: 'carts#addtocart', as: 'addtocart'
 
-  get '/showcart', to: 'carts#show', as: 'showcart'
+    get '/adminv' , to: 'products#admin_view'
 
-  get '/createorder', to: 'orders#createorder', as: 'createorder'
+    get 'users/admin'
 
-  get '/orders', to: 'orders#index', as: 'orders'
+    get 'users/show', as: 'users_show'
 
-  delete '/cart/destroy', to: 'carts#destroy', as: 'cartdestroy'
+    get 'orderpayement/:id' , to: 'charges#new', as: 'new_charge'
 
-  delete '/cart/destroyitem/:id', to: 'carts#deleteitem', as: 'destroyitem'
+    post 'payementconfirmation/:id' , to: 'charges#create', as: 'charges'
 
-  delete '/orderdestroy/:id', to: 'orders#destroy', as: 'orderdestroy'
+    get 'carts/show'
 
-  get '/newitem', to: 'products#new'
+    devise_for :users
 
-  get 'users/:id',to: 'users#show', as: 'show_user'
+    get 'products/index'
 
-  get '/adminv/edit/:id', to: 'products#edit', as:'edit'
-end
+    get '/products/:id', to: 'products#show', as: 'product'
+
+    post '/products/create', to: 'products#create', as: 'create_product'
+
+    patch '/products/update', to: 'products#update', as: 'update_product'
+
+    put '/products/update', to: 'products#update', as: 'put_product'
+
+    get '/products/addtocart/:id', to: 'carts#addtocart', as: 'addtocart'
+
+    get '/showcart', to: 'carts#show', as: 'showcart'
+
+    get '/createorder', to: 'orders#createorder', as: 'createorder'
+
+    get '/orders', to: 'orders#index', as: 'orders'
+
+    delete '/cart/destroy', to: 'carts#destroy', as: 'cartdestroy'
+
+    delete '/cart/destroyitem/:id', to: 'carts#deleteitem', as: 'destroyitem'
+
+    delete '/orderdestroy/:id', to: 'orders#destroy', as: 'orderdestroy'
+
+    get '/newitem', to: 'products#new'
+
+    get 'users/:id',to: 'users#show', as: 'show_user'
+
+    get '/adminv/edit/:id', to: 'products#edit', as:'edit'
+  end
