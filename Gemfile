@@ -19,6 +19,7 @@ gem "font-awesome-rails"
 gem 'devise-i18n'
 gem 'toastr-rails'
 gem 'rails-i18n'
+gem 'paperclip'
 
 
 group :development, :test do
@@ -27,7 +28,6 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'sqlite3'
-
 end
 
 group :development do

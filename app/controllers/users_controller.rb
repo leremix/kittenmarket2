@@ -7,4 +7,8 @@ class UsersController < ApplicationController
   def admin
     @user = User.find(params[:admin])
   end
+
+  def create
+
+  end
 end
