@@ -5,8 +5,6 @@
     <% if user_signed_in? %>
 
             <a class="dropdown-item" href="<%=show_user_path(current_user.id)%>">PROFILE</a>
-              <i class="icon user"></i> Mon compte
-            <% end %>
             <%= link_to showcart_path, class: "item" do %>
               <i class="shopping basket icon"></i> Panier
             <% end %>
