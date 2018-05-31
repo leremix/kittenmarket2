@@ -5,14 +5,18 @@
   <div class="right menu">
     <% if user_signed_in? %>
        
-            <%= link_to 'Mon compte', show_user_path(current_user.id), class: "item" %>
-          <%= link_to 'Deconnexion', destroy_user_session_path, :method => :delete, class: "item" %>
-          <a href="<% destroy_user_session_path %>" class="item"><i class="icon power off"></i></a>
-        
- 
-     
-        <%= link_to 'Panier', showcart_path, class: "item" %>
-   
+            <%= link_to show_user_path(current_user.id), class: "item" do %>
+              <i class="icon user"></i> Mon compte
+            <% end %>
+            <%= link_to showcart_path, class: "item" do %>
+              <i class="shopping basket icon"></i> Panier
+            <% end %>
+            <% if current_user.admin? %>
+              <a class="item" href="/adminv">Dashboard</a>
+            <% end %>
+            <%= link_to destroy_user_session_path ,:method => "delete" , class: "item" do %>
+              <i class="icon power off red"></i>
+            <% end %>
     <% else %>
       <%= link_to 'Se connecter', new_user_session_path, class: "item" %>
     <% end %>
