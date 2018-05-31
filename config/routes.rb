@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
-     resources :photos
-     
+  devise_for :users,
+              :controllers => {:registrations => 'registrations' }
+
+
+   resources :photos
 
   get '/adminv' , to: 'products#admin_view'
 
@@ -9,13 +12,15 @@ Rails.application.routes.draw do
 
   get 'users/show', as: 'users_show'
 
+    get 'users/:id',to: 'users#show', as: 'show_user'
+
   get 'orderpayement/:id' , to: 'charges#new', as: 'new_charge'
 
   post 'payementconfirmation/:id' , to: 'charges#create', as: 'charges'
 
   get 'carts/show'
 
-  devise_for :users
+
 
   root 'products#index'
 
@@ -37,7 +42,8 @@ Rails.application.routes.draw do
 
   get '/newitem', to: 'products#new'
 
-  get 'users/:id',to: 'users#show', as: 'show_user'
+  post '/createitem', to: 'products#create'
+
 
   get '/adminv/edit/:id', to: 'products#edit', as:'edit'
 end
