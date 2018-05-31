@@ -3,8 +3,8 @@
   <%= link_to 'Photos', root_path, class: "item" %>
   <div class="right menu">
     <% if user_signed_in? %>
-            
-            <%= link_to show_user_path(current_user.id), class: "item" do %>
+
+            <a class="dropdown-item" href="<%=show_user_path(current_user.id)%>">PROFILE</a>
               <i class="icon user"></i> Mon compte
             <% end %>
             <%= link_to showcart_path, class: "item" do %>
