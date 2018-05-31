@@ -1,6 +1,6 @@
 class ChargesController < ApplicationController
   def new
-    @order = Order.find(params[:id])    
+    @order = Order.find(params[:id])
   end
 
   def create
@@ -18,10 +18,11 @@ class ChargesController < ApplicationController
     description: 'Rails Stripe customer',
     currency: 'usd'
     )
-    
+
     @order.statut = true
     @order.save!
-    # UserMailer.order_email.deliver_now!
+    #UserMailer.order_email.deliver_now!
+
     rescue Stripe::CardError => e
     flash[:error] = e.message
 
